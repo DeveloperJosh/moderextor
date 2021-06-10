@@ -75,16 +75,7 @@ client.on('message', async message => {
 		}
 	}
 	if (message.author.bot) return;
-
-	let bl = await db.fetch(`blacklisted_${message.author.id}`);
-
 	if (!message.content.startsWith(PREFIX)) return;
-	if (bl !== null) {
-		message.reply(
-			`You are blacklisted, if you would like to get unblacklisted please join ${invite}`
-		);
-		return;
-	}
 	if (!message.guild) return;
 	if (!message.member)
 		message.member = await message.guild.fetchMember(message);
@@ -126,42 +117,7 @@ client.on('message', async message => {
 			}
 		}
 		command.run(client, message, args);
-    let command_log;
-    client.channels.cache.get("774674401521958943").send(
-      command_log = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setFooter(client.user.username, client.user.avatarURL())
-      .setTimestamp(new Date())
-      .setTitle('Command used!')
-      .setDescription(`**Command:**\n\`\`\`${command.name}\`\`\`\n**Guild:**\n\`\`\`${message.guild.name} - ${message.guild.id}\`\`\`\n**User:**\n\`\`\`${message.author.tag} - ${message.author.id}\`\`\``)
-    )
 	}
-});
-
-client.on("guildCreate", (guild) => {
-
-    client.channels.cache.get("774674401521958943").send(
-      command_log = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setFooter(`Added to ${guild.name}!`, guild.iconURL())
-      .setTimestamp(new Date())
-      .setTitle('Added To Server')
-      .setDescription(`**Guild:**\n\`\`\`${guild.name} - ${guild.id}\`\`\`\n**Owner:**\n\`\`\`${guild.owner.user.username} - ${guild.owner.id}\`\`\`\n**Number of members:**\n\`\`\`${guild.memberCount}\`\`\``)
-    )
-
-});
-
-client.on("guildDelete", (guild_remove) => {
-
-    client.channels.cache.get("774674401521958943").send(
-      command_log = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setFooter(`Removed from ${guild_remove.name}!`, guild_remove.iconURL())
-      .setTimestamp(new Date())
-      .setTitle('Removed from Server')
-      .setDescription(`**Guild:**\n\`\`\`${guild_remove.name} - ${guild_remove.id}\`\`\`\n**Owner:**\n\`\`\`${guild_remove.owner.user.username} - ${guild_remove.owner.id}\`\`\``)
-    )
-
 });
 
 client.on("guildMemberAdd", async (member) => {
