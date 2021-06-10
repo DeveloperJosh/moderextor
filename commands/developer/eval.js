@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('dotenv').config();
 module.exports = {
   name: 'eval',
   category: 'developer',
@@ -7,7 +8,10 @@ module.exports = {
   usage: '.eval <code>',
   run: async (client, message, args) => {
     try {
-      if(message.author.id === "671355502399193128" || message.author.id === "321750582912221184") {
+        let is = process.env.OWNERID;
+
+        if(message.author.id === `${id}`) {
+          
       const embed = new Discord.MessageEmbed()
         .setTitle("🟢 Success 🟢")
         .addField("Input", "```xl\n" + args.join(" ") + "```");
