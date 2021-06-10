@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('dotenv').config();
 const {MessageEmbed} = require('discord.js');
 const db = require('quick.db')
 module.exports={
@@ -9,8 +10,10 @@ module.exports={
     usage: '.leave [id]',
     run: async(client, message, args)=>{
     try{
+        
+        let is = process.env.OWNERID;
 
-            if(message.author.id === "671355502399193128" || message.author.id === "321750582912221184") {
+            if(message.author.id === `${id}`) {
 
       const guildId = args[0];
   
