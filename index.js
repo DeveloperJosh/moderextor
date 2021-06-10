@@ -81,7 +81,7 @@ client.on('message', async message => {
 	if (!message.content.startsWith(PREFIX)) return;
 	if (bl !== null) {
 		message.reply(
-			`You are blacklisted, if you would like to get unblacklisted please join https://discord.gg/dEvCPR5NEJ`
+			`You are blacklisted, if you would like to get unblacklisted please join ${invite}`
 		);
 		return;
 	}
