@@ -38,7 +38,6 @@ client.on('ready', () => {
 		const status = statuses[Math.floor(Math.random() * statuses.length)];
 		client.user.setActivity(`${status}`, { type: 'WATCHING' });
 	}, 10000);
-    statcord.autopost();
 	console.log(
 		`Hello, I am online on ${client.guilds.cache.size} servers and serving ${
 			client.users.cache.size
