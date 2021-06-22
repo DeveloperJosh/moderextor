@@ -9,7 +9,6 @@ const moment = require('moment');
 const db = require('quick.db');
 const client = new Discord.Client({
 	disableEveryone: true,
-  ws: { properties: { $browser: "Discord iOS" }},
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
 });
 
