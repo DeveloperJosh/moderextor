@@ -31,9 +31,7 @@ OR
       if (member.id === message.author.id) {
         return message.channel.send('You cannot ban yourself')
       }
-
-
-
+      
       if (member) {
         try {
           let dm = new Discord.MessageEmbed()
