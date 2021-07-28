@@ -1,4 +1,4 @@
-mModerextor
+Moderextor
 ====================
 
 Made by the IA development team
